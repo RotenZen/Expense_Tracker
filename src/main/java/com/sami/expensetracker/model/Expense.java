@@ -3,8 +3,12 @@ package com.sami.expensetracker.model;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+import com.sami.expensetracker.enums.Category;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -23,8 +27,12 @@ public class Expense {
     @Column(nullable = false) //Puts restriction, Cannot save an expense without amount
     private BigDecimal amount; //BigDecimal used for money to avoid rounding errors
 
-    @Column(nullable = false)
-    private String category; // We will turn this into a separate Table later, but let's keep it simple for now
+    @Enumerated(EnumType.STRING)
+    @Column(nullable= false)
+    private Category category; 
+
+    //@Column(nullable = false)
+    //private String category; // We will turn this into a separate Table later, but let's keep it simple for now
 
     private String description; //Description can be empty
 
