@@ -24,6 +24,9 @@ public class Expense {
     @GeneratedValue(strategy = GenerationType.IDENTITY) //Handles Id, automatically types ID;Auto Increment
     private Long id;
 
+    //@NotNull(message = "Amount is required")
+    //@Positive(message = "Amount must be greater than zero") //*****Implement these two at a later time******
+
     @Column(nullable = false) //Puts restriction, Cannot save an expense without amount
     private BigDecimal amount; //BigDecimal used for money to avoid rounding errors
 
